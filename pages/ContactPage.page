@@ -1,0 +1,26 @@
+<apex:page showHeader="false" controller="ContactController" showHeader="true" sidebar="true" tabStyle="Contact">
+        <style>
+                .odd { background-color: #ffffff; }
+                .even { background-color: #eeeeff; }
+                .title { background-color: red; }
+        </style>
+        <apex:form>
+                <apex:dataTable value="{!contacts}" var="c" cellpadding="4" border="1"  rowClasses="odd,even" >
+                        <apex:column>
+                                <apex:facet name="header"><b>Name</b></apex:facet>
+                                <apex:commandLink reRender="detail">{!c.name}
+                                        <apex:param name="id" value="{!c.id}"/>
+                                </apex:commandLink>
+                        </apex:column>
+                        <apex:column>
+                                <apex:facet name="header" ><b>Account Name</b></apex:facet>
+                                {!c.account.name}
+                        </apex:column>
+                </apex:dataTable>
+                
+        </apex:form>
+        <apex:outputPanel id="detail">
+                <apex:detail subject="{!contact}" title="false" relatedList="false"/>
+                <apex:relatedList list="ActivityHistories" subject="{!contact}"/>
+        </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page controller="ControlThis">
+
+  <h1>Congratulations</h1>
+  This is your new Page <br/>
+<apex:form >
+  Your Name &nbsp;
+  <apex:inputText value="{!DefaultString}" ></apex:inputText>
+</apex:form><br/>
+
+<apex:pageblock >
+<apex:pageBlockSection title="Photo">
+    <apex:pageblockSectionItem >
+        <apex:outputLabel value="Your Photo" for="upload" />
+        <apex:inputFile id="upload" value="{!DefaultString}" />
+    </apex:pageblockSectionItem>
+</apex:pageBlockSection>
+</apex:pageblock>
+
+</apex:page>

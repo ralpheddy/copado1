@@ -1,0 +1,23 @@
+<apex:page>
+
+  <style>
+        .header { 
+                background-color: #eeeeee;
+                border-top: #777777 solid 1px;
+                border-left: #777777 solid 1px;
+                border-bottom: #777777 solid 1px;
+                border-right: #777777 solid 1px;
+                width: 100%;
+        }
+        .title { 
+                font-size: 18px;
+        }
+	
+  </style>
+  <apex:panelGrid columns="3" styleClass="header">
+        <apex:image value="{!$Resource.logo}" />
+        <apex:outputPanel styleClass="title"><br/>Personal Health Record</apex:outputPanel>
+        <apex:outputLink value="/home/home.jsp"><br/>home</apex:outputLink>
+  </apex:panelGrid>  
+
+</apex:page>

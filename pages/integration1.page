@@ -1,0 +1,10 @@
+<apex:page controller="integration1Class">
+<apex:form >
+
+  
+  <apex:commandButton value="Get" action="{!GetData}" style="width:80px;" />
+  <br/>
+  Results: <b>{!vResult}</b>
+  
+</apex:form>
+</apex:page>

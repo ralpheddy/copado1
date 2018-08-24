@@ -1,0 +1,55 @@
+<apex:page controller="QuickController" tabStyle="Contact">
+    <apex:pageBlock title="Possible Matches - Please Select Contact for Case">
+        <apex:form>
+
+                <apex:dataTable value="{!myCons}" var="c" id="theTable" cellspacing="15" rowClasses="odd,even" styleClass="tableClass">
+                        <apex:column>         
+                                <apex:facet name="header">Select </apex:facet>                                             
+                                <apex:inputCheckbox id="cBox" value="{!c.selected}">
+                                        <apex:actionSupport event="onchange" action="{!getLastSave}"/> 
+                                </apex:inputCheckbox>     
+
+                        </apex:column>                
+                        <apex:column>                                             
+                                <apex:facet name="header">First Name</apex:facet>                                                         
+                      <apex:outputPanel>
+                          <apex:actionSupport event="onmouseover" rerender="detail"> 
+                              <apex:param name="cid" value="{!c.a.Id}"/>
+                                  </apex:actionSupport> 
+                                  {!c.a.FirstName}
+                              </apex:outputPanel> 
+                        </apex:column>                
+                        <apex:column>                        
+                                <apex:facet name="header">Last Name</apex:facet>                                                         
+                                <apex:outputField value="{!c.a.LastName}"> 
+                                </apex:outputField>                
+                        </apex:column>
+                        <apex:column>                        
+                                <apex:facet name="header">Phone</apex:facet>                                                         
+                                <apex:outputField value="{!c.a.Phone}"> 
+                                </apex:outputField>                
+                        </apex:column>
+                        <apex:column>                        
+                                <apex:facet name="header">Email</apex:facet>                                                         
+                                <apex:outputField value="{!c.a.email}"> 
+                                </apex:outputField>                
+                        </apex:column>
+                        <apex:column>                        
+                                <apex:facet name="header">State</apex:facet>                                                         
+                                <apex:outputField value="{!c.a.MailingState}"> 
+                                </apex:outputField>                
+                        </apex:column>
+                </apex:dataTable>
+
+       </apex:form>
+</apex:pageBlock>
+
+        <apex:outputPanel id="detail" layout="block">
+        <apex:actionStatus startText="Requesting...">
+            <apex:facet name="stop">
+                <apex:detail  subject="{!$CurrentPage.parameters.cid}" relatedList="false" title="false"/>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:outputPanel>
+
+</apex:page>

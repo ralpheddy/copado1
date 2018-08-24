@@ -1,0 +1,33 @@
+<apex:page controller="FollowMe2" showHeader="false">
+
+  <apex:include pageName="Header" />
+  
+    <apex:panelGrid columns="2">
+ <!-- left --> 
+        <apex:include pageName="Menu" />
+ 
+
+<!-- right -->
+        
+        <apex:outputPanel id="detail">
+<style>
+.detailHeader {
+text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        
+	width: 100%;
+}
+</style>
+          <apex:form>
+                <apex:panelGrid columns="1" width="100%" styleClass="detailHeader">
+                  <apex:outputText styleClass="detailHeader" value="PERSONAL INFORMATION" />
+                </apex:panelGrid>
+                <apex:detail title="true" relatedList="false" />
+          </apex:form>
+        </apex:outputPanel>
+        
+    </apex:panelGrid>
+  
+
+</apex:page>

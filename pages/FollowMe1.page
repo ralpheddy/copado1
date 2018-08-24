@@ -1,0 +1,40 @@
+<apex:page controller="FollowMe1" showHeader="true">
+
+  <apex:panelGrid columns="99">
+        <apex:image value="{!$Resource.logo}" />
+        <apex:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;" escape="false" />
+        <apex:outputPanel style="font-size: 18px;"><br/>Personal Health Record</apex:outputPanel>
+        <apex:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;" escape="false" />
+  </apex:panelGrid>  
+  <hr/>
+  <apex:form>
+    <apex:panelGrid columns="2">
+ <!-- left --> 
+        <apex:outputPanel>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="command1" style="color:white;text-decoration:none;">
+                        Personal Information<apex:param name="type" value="info"/>
+                </apex:commandLink>
+          </apex:toolbar>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="command2"  style="color:white;text-decoration:none;">
+                        Doctor Visits<apex:param name="type" value="doctor"/>
+                </apex:commandLink>                
+          </apex:toolbar>
+          <apex:toolbar>Medical Claims</apex:toolbar>
+        </apex:outputPanel>
+
+
+<!-- right -->
+        <apex:outputPanel id="detail">
+          <apex:tabPanel>
+                <apex:tab>1</apex:tab>
+                <apex:tab>2</apex:tab>
+          </apex:tabPanel>
+          <apex:detail title="true" relatedList="false" />
+        </apex:outputPanel>
+
+    </apex:panelGrid>
+  </apex:form>
+
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page controller="LearnController" extensions="LearnExtension" showHeader="false">
+  <apex:sectionHeader title="New Customer Opportunity" subtitle="Step 1 of 3"/>
+
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:pageBlock title="{!Statement} {!$User.FirstName}" id="Contacts" mode="Edit">
+    <apex:pageBlockTable value="{!SomeContacts}" var="cont">
+        <apex:column value="{!cont.name}"></apex:column>
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+
+  
+</apex:page>

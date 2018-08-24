@@ -1,0 +1,15 @@
+<apex:page StandardController="Contact" Extensions="A_Phone_Test">
+  <!-- Begin Default Content REMOVE THIS -->
+  
+
+<apex:sectionHeader title="Ralph" subtitle="Eddy"></apex:sectionHeader>
+<apex:pageBlock title="Welcome!" >
+        <b>I am <font color='red'>{!$User.FirstName } {!$User.LastName} </font>({!$Profile.Name})</b>
+        <br/>
+        <br/>
+        I live in: <b>{!MyCity}</b><br/>
+        The time is: <b>{!MyTime}</b><br/>
+
+</apex:pageBlock>
+
+</apex:page>

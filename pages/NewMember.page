@@ -1,0 +1,35 @@
+<apex:page showHeader="false" controller="enrollment" tabStyle="Contact">
+
+<apex:panelGrid columns="3" width="90%" border="0">       
+        <apex:image value="/servlet/servlet.ImageServer?id=01530000000Zziz&oid=00D3000000095Kh" />
+        <apex:image value="/servlet/servlet.ImageServer?id=01530000000ZzjG&oid=00D3000000095Kh" />
+        <apex:outputLink value="/home/home.jsp">home</apex:outputLink>
+</apex:panelGrid>
+
+<apex:form>
+<apex:pageBlock title="Add New Member to {!group.name}">
+
+  <apex:pageBlockSection title="Contact Information">
+    <apex:panelGrid columns="2">
+        <apex:outputLabel value="First Name" for="contactFirstName"/>
+        <apex:inputField id="contactFirstName" value="{!member.firstName}"/>
+
+        <apex:outputLabel value="Last Name" for="contactLastName"/>
+        <apex:inputField id="contactLastName" value="{!member.lastName}"/>
+
+        <apex:outputLabel value="Phone" for="contactPhone"/>
+        <apex:inputField id="contactPhone" value="{!member.phone}"/>
+    
+        <apex:outputLabel value="Email" for="contactEmail"/>
+        <apex:inputField id="contactEmail" value="{!member.email}"/>
+
+    </apex:panelGrid>
+  </apex:pageBlockSection>
+  
+        <apex:commandButton action="{!save}" value=" Save " styleClass="btn"/>
+  
+
+</apex:pageBlock>
+</apex:form>
+
+</apex:page>

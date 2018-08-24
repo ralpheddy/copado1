@@ -1,0 +1,61 @@
+<apex:page showHeader="false" controller="enrollment" tabStyle="Contact">
+
+<apex:panelGrid columns="3" width="90%" border="0">       
+        <apex:image value="/servlet/servlet.ImageServer?id=01530000000Zziz&oid=00D3000000095Kh" />
+        <apex:image value="/servlet/servlet.ImageServer?id=01530000000ZzjG&oid=00D3000000095Kh" />
+        <apex:outputLink value="/home/home.jsp">home</apex:outputLink>
+</apex:panelGrid>
+
+<apex:pageBlock title="Group Information">
+  <apex:panelGrid columns="2">
+        <apex:outputLabel value="Group Name"  />
+        <apex:outputText styleClass="myLabel" value="{!group.name}" />
+  </apex:panelGrid>
+
+<apex:form>
+
+<br />
+<apex:pageBlockSection title="Members">
+        <apex:dataTable value="{!Contacts}" var="contact" id="theTable" rowClasses="odd,even" cellspacing="0" cellpadding="5">
+                <apex:column>
+                        <apex:facet name="header">&nbsp;</apex:facet>
+                        <apex:outputLink value="#" >edit</apex:outputLink>
+                </apex:column>
+                <apex:column>
+                        <apex:facet name="header">Name</apex:facet>
+                        <apex:outputText value="{!contact.firstname} {!contact.lastname}"/>
+                </apex:column>
+                <apex:column>
+                        <apex:facet name="header">Email</apex:facet>
+                        <apex:outputText value="{!contact.email}"/>
+                </apex:column>
+                <apex:column>
+                        <apex:facet name="header">Phone</apex:facet>
+                        <apex:outputText value="{!contact.phone}"/>
+                </apex:column>
+        </apex:dataTable>
+
+        
+
+</apex:pageBlockSection>
+
+<br />
+  <apex:commandButton action="{!newMemberPage}" value=" New Member " styleClass="btn"/>
+
+</apex:form>
+
+</apex:pageBlock>
+
+<br/>
+<br/>
+
+<style>
+.myLabel {
+  font-weight: bold;
+  font-size: 18px;
+}
+.odd { background-color: #dddddd; }
+.even { background-color: #ffffff; }
+</style>
+
+</apex:page>

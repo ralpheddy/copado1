@@ -1,0 +1,50 @@
+<apex:page standardController="Account" extensions="AccountWithContactGridExtension" showHeader="true" tabStyle="Account" >
+    <apex:detail relatedList="false" title="true"/>
+
+    <apex:form>
+        <apex:pageBlock title="Edit Contacts" id="gridform">
+
+                <apex:pageBlockButtons>
+                        <apex:commandButton action="{!saveContacts}" value="Save" id="SaveContactButton" rerender="gridform" status="status"/>
+                        <apex:commandButton action="{!addContact}" value="New" id="AddContactButton" rerender="ContactTable" status="status"/>
+                </apex:pageBlockButtons>
+
+                <apex:dataTable value="{!AccContacts}" var="contact" id="ContactTable" rowClasses="odd,even" styleClass="" rules="rows" width="100%" columnsWidth="60px">
+                <!-- <apex:dataTable value="{!AccContacts}" var="contact" id="ContactTable" rowClasses="odd,even" styleClass="list"> -->
+                        <apex:column headerValue="Action">
+                                <b><apex:outputLink value="/{!contact.id}/e" id="editLink">Edit</apex:outputLink>
+                                |&nbsp;
+                                <apex:outputLink id="delLink" onclick="if ((Modal.confirm && Modal.confirm('Are you sure?')) || (!Modal.confirm && window.confirm('Are you sure?'))) navigateToUrl('/setup/own/deleteredirect.jsp?delID={!contact.Id}&retURL=/apex/AccountWithContactGrid?id={!account.id}');">Del</apex:outputLink></b>
+
+                        </apex:column>
+                        <apex:column headerValue="Salutation">
+                                <apex:inputField id="Contact_salutation" value="{!contact.salutation}"/>
+                        </apex:column>
+                        <apex:column headerValue="First name">
+                                <apex:inputField id="Contact_fname" value="{!contact.firstname}"/>
+                        </apex:column>
+                        <apex:column headerValue="Last name">
+                                <apex:inputField id="Contact_lname" value="{!contact.lastname}"/>
+                        </apex:column>
+                        <apex:column headerValue="Departmant">
+                                <apex:inputField id="Contact_Department" value="{!contact.Department}"/>
+                        </apex:column>
+                        <apex:column headerValue="Email">
+                                <apex:inputField id="Contact_email" value="{!contact.email}"/>
+                        </apex:column>
+                        <apex:column headerValue="Phone">
+                                <apex:inputField id="Contact_phone" value="{!contact.phone}"/>
+                        </apex:column>
+                        <apex:column headerValue="Mobile">
+                                <apex:inputField id="Contact_MobilePhone" value="{!contact.MobilePhone}"/>
+                        </apex:column>
+                </apex:dataTable>
+
+                <apex:actionStatus id="status" startText="Requesting..." stopText="Done!"/>&nbsp;{!StatusText}
+
+        </apex:pageBlock>  
+    </apex:form>
+    <apex:relatedList subject="{!account}" list="Opportunities" />
+    <apex:relatedList subject="{!account}" list="OpenActivities" />
+    <apex:relatedList subject="{!account}" list="NotesAndAttachments" />
+  </apex:page>

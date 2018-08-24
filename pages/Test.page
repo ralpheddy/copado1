@@ -1,0 +1,13 @@
+<apex:page standardController="Account">
+  <b>In-Line Visual Force</b><br/>
+  <br/>
+<style>
+.pretty{ color:blue; font-weight: bold; }
+</style>
+ <apex:panelGrid columns="2">
+        <apex:outputLabel>Name:&nbsp;</apex:outputLabel>
+        <apex:outputLabel styleClass="pretty">{!account.name}</apex:outputLabel>
+        <apex:outputLabel>Id:</apex:outputLabel>
+        <apex:outputLabel value="{!account.id}" styleClass="pretty"></apex:outputLabel>
+</apex:panelGrid>
+</apex:page>

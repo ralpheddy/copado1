@@ -1,0 +1,86 @@
+<apex:page controller="FollowMe2" showHeader="false">
+<style>
+        .myTool {
+                color: white;
+                text-decoration: none;
+        }
+        .myTool:hover {
+                color: yellow;
+                text-decoration: none;
+        }
+        .photo { 
+                text-align: center; 
+                background-color: #eeeeee;
+        }
+        .image { border: #aaaaaa solid 1px; }
+        .sectionTitle { 
+                font-size: 14px;
+                font-weight: bold; 
+                background-color: yellow;
+                border-top: black solid 1px;
+                border-bottom: black solid 1px;
+        }
+        .menuForm { 
+                border-top: #777777 solid 1px;
+                border-left: #777777 solid 1px;
+                border-bottom: #777777 solid 1px;
+                border-right: #777777 solid 1px;
+        }
+</style>
+  <apex:form styleClass="menuForm">
+        
+        <apex:panelGrid columns="1" width="100%" styleClass="photo">
+                <apex:image value="{!$Resource.photo2}" styleClass="image" />
+        </apex:panelGrid> 
+
+        <apex:panelGrid columns="1" width="100%" styleClass="sectionTitle ">
+                <apex:outputText value="MEDICAL RECORDS" />
+        </apex:panelGrid>
+ 
+        <apex:outputPanel>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="menu10" styleClass="myTool">
+                        Personal Information<apex:param name="type" value="personal_info"/>
+                </apex:commandLink>
+          </apex:toolbar>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="menu20" styleClass="myTool">
+                        Emergency Contacts<apex:param name="type" value="emergency_contacts"/>
+                </apex:commandLink>
+          </apex:toolbar>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="menu30" styleClass="myTool">
+                        Conditions &amp; Procedures<apex:param name="type" value="conditions_procedures"/>
+                </apex:commandLink>
+          </apex:toolbar>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="menu40" styleClass="myTool">
+                        Medical Office Visits<apex:param name="type" value="medical_office_visits"/>
+                </apex:commandLink>                
+          </apex:toolbar>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="menu50" styleClass="myTool">
+                        Dental Office Visits<apex:param name="type" value="dental_office_visits"/>
+                </apex:commandLink>                
+          </apex:toolbar>
+        </apex:outputPanel>
+
+        <apex:panelGrid columns="1" width="100%" styleClass="sectionTitle ">
+                <apex:outputText value="REPORTS" />
+        </apex:panelGrid>
+
+        <apex:outputPanel>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="menu100" styleClass="myTool">
+                        Emergency Medical Card<apex:param name="type" value="Emergency_Medical_Card"/>
+                </apex:commandLink>
+          </apex:toolbar>
+          <apex:toolbar>
+                <apex:commandLink action="{!ChangeForm}" rerender="detail" id="menu200" styleClass="myTool">
+                        Summary Medical Report<apex:param name="type" value="Summary_Medical_Report"/>
+                </apex:commandLink>
+          </apex:toolbar>
+        </apex:outputPanel>
+
+  </apex:form>
+</apex:page>
